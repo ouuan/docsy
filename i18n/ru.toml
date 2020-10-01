@@ -41,3 +41,12 @@ other = "Предложить изменения документации"
 other = "Предложить доработки по проекту"
 [post_posts_in]
 other = "Публикации в"
+
+
+# Translation warnings
+[outdated_translation]
+other = "The <a href='{{ .Permalink }}'>English version</a> of this page has changed. This page may be outdated."
+[unfinished_translation]
+other = "This page hasn't been translated yet."
+[help_translation]
+other = "You can help us <a href='{{ .editURL }}'>translate this page</a>."

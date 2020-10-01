@@ -41,3 +41,12 @@ other = "提交文档问题"
 other = "提交项目问题"
 [post_posts_in]
 other = "Posts in"
+
+
+# Translation warnings
+[outdated_translation]
+other = "这个页面的 <a href='{{ .Permalink }}'>英文版本</a> 有所改动，翻译可能不是最新的。"
+[unfinished_translation]
+other = "这个页面还没有被翻译。"
+[help_translation]
+other = "你可以帮助我们 <a href='{{ .editURL }}'>翻译本页</a>。"
