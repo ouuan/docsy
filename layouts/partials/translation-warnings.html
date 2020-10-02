@@ -16,6 +16,14 @@ Show warnings when:
 {{ else if $gh_subdir }}
 {{ $editURL = printf "%s/edit/%s/%s/content/%s" $gh_repo $gh_branch $gh_subdir $pathFormatted }}
 {{ end }}
+{{ $historyURL := printf "%s/commits/%s/content/%s" $gh_repo $gh_branch $pathFormatted }}
+{{ if and ($gh_subdir) (.Sites.First.Language.Lang) }}
+{{ $historyURL = printf "%s/commits/%s/%s/content/%s/%s" $gh_repo $gh_branch $gh_subdir ($.Sites.First.Language.Lang) $pathFormatted }}
+{{ else if .Sites.First.Language.Lang }}
+{{ $historyURL = printf "%s/commits/%s/content/%s/%s" $gh_repo $gh_branch ($.Sites.First.Language.Lang) $pathFormatted }}
+{{ else if $gh_subdir }}
+{{ $historyURL = printf "%s/commits/%s/%s/content/%s" $gh_repo $gh_branch $gh_subdir $pathFormatted }}
+{{ end }}
 {{ $translation_modified := .Lastmod }}
 {{ $translation_content := .Content }}
 {{ range first 1 .Translations }}
@@ -26,7 +34,7 @@ Show warnings when:
 </div>
 {{ else if .Lastmod.After $translation_modified }}
 <div class="pageinfo pageinfo-primary">
-    {{ T "outdated_translation" . | safeHTML }}
+    {{ T "outdated_translation" (dict "originLink" .Permalink "historyURL" $historyURL) | safeHTML }}
     {{ T "help_translation" (dict "editURL" $editURL) | safeHTML }}
 </div>
 {{ end }}

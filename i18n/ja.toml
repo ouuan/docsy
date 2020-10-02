@@ -45,7 +45,7 @@ other = "記事一覧"
 
 # Translation warnings
 [outdated_translation]
-other = "The <a href='{{ .Permalink }}'>English version</a> of this page has changed. This page may be outdated."
+other = "The <a href='{{ .originLink }}'>English version</a> of this page <a href='{{ .historyURL }}'>has changed</a>. This page may be outdated."
 [unfinished_translation]
 other = "This page hasn't been translated yet."
 [help_translation]
